@@ -38,7 +38,7 @@ export class UsuariodialogoComponent  implements OnInit {
   guardar(){
     this.datos._body = this.form.value;
 
-    fetch('http://serveringroup.herokuapp.com/usuarios', {
+    fetch('https://serveringroup.herokuapp.com/usuarios', {
       method: 'PUT',
       body: JSON.stringify(this.datos._body),
       headers: { "Content-type": "application/json"}

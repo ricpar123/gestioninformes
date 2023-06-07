@@ -14,7 +14,7 @@ export class RequestService {
   constructor( private http: HttpClient) { }
 
   getUsuarios():Observable<any>{
-    return this.http.get<Usuario>('http://serveringroup.herokuapp.com/usuarios/tabla');
+    return this.http.get<Usuario>('https://serveringroup.herokuapp.com/usuarios/tabla');
   }
 
 }
