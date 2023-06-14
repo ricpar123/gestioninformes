@@ -1,0 +1,28 @@
+export interface Informe {
+    _id: '',
+    usuario: '',
+    cliente: '',
+    descripcion: '',
+    marca: '',
+    modelo: '',
+    serie: '',
+    tipoTrabajo: '',
+    presupuesto: '',
+    motivo: '',
+    servicio: '',
+    obs: '',
+    recibido: '',
+    ci: '',
+    firma: '',
+    firmaT: '',
+    fecha: '',
+    fechaInicio: '',
+    fechaFin: '',
+    horaInicio: '',
+    horaFin: '',
+    horasViaje: '',
+    horasLab: '',
+    horasNormales: '',
+    horasTotales: ''
+
+}

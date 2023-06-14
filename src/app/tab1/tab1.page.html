@@ -1,91 +1,33 @@
+
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>
       Usuarios
     </ion-title>
-   
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-    <ng-container matColumnDef="userid">
-      <th mat-header-cell *matHeaderCellDef>UserId</th>
-      <td mat-cell *matCellDef="let element; let i = index">{{element.userid}}</td>
-    </ng-container>
-   
-    <ng-container matColumnDef="clave">
-      <th mat-header-cell *matHeaderCellDef>Clave</th>
-      <td mat-cell *matCellDef="let element">{{element.clave}}</td>
-    </ng-container>
+  <ion-grid fixed>
+    <ion-row class="title">
+      <ion-col size="3">Userid</ion-col>
+      <ion-col size="3">Clave</ion-col>
+      <ion-col size="3">Rol</ion-col>
+      <ion-col size="3">Opciones</ion-col>
+    </ion-row>
 
-    <ng-container matColumnDef="rol">
-      <th mat-header-cell *matHeaderCellDef>Rol</th>
-      <td mat-cell *matCellDef="let element">{{element.rol}}</td>
-    </ng-container>
+    <ion-row *ngFor="let usuario of usuarios; index as i">
+      <ion-col size="3">{{ usuario.userid}}</ion-col>
+      <ion-col size="3">{{usuario.clave}}</ion-col>
+      <ion-col size="3">{{usuario.rol}}</ion-col>
+      <ion-col size="3"><ion-button size="small"class="ion-padding-rigth"(click)="edit(i)">Editar</ion-button>
+         <ion-button size="small" color="danger" class="ion-padding-rigth"(click) = "delete(i)">Borrar</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
-    <ng-container matColumnDef="opciones">
-      <th mat-header-cell *matHeaderCellDef> Opciones </th>
-      <td mat-cell *matCellDef="let element; let i = index" class="action-link"> 
-        <a (click)="openDialog(i)">Edit</a> | 
-        <a (click)="delete(i)">Delete</a>  
-      </td>
-    </ng-container>
+  <ion-button shape="round" (click)="nuevoUsuario()">Nuevo Usuario</ion-button>
+  
 
-    <tr mat-header-row *matHeaderRowDef="displayColumn"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayColumn; let i = index"></tr>
-  </table>
-
-  <ion-button id="open-modal" shape="round">Nuevo Usuario</ion-button>
-  <ion-modal trigger="open-modal">
-    <ng-template>
-      <ion-header>
-        <ion-toolbar>
-          <ion-title>Nuevo Usuario</ion-title>
-        </ion-toolbar>
-      </ion-header>
-      <ion-content class="ion-padding">
-        <form [formGroup]="usuarioForm">
-          <ion-grid>
-            <ion-row>
-              <ion-col>
-                <ion-item>
-                  <ion-input placeholder="UserId" formControlName="userid"></ion-input>
-                </ion-item>
-              </ion-col>
-            </ion-row>
-
-            <ion-row>
-              <ion-col>
-                <ion-item>
-                  <ion-input placeholder="Clave" formControlName="clave"></ion-input>
-                </ion-item>
-              </ion-col>
-            </ion-row>
-
-            <ion-row>
-              <ion-col>
-                <ion-item>
-                  <ion-input placeholder="rol" formControlName="rol"></ion-input>
-                </ion-item>
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-          <ion-grid>
-            <ion-row>
-              <ion-col>
-                <ion-button shape="round" (click)="cancelar()">Cancelar</ion-button>
-              </ion-col>
-              <ion-col>
-                <ion-button shape="round" (click)="enviar()">
-                  Enviar
-                </ion-button>
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-        </form>
-      </ion-content>
-    </ng-template>
-</ion-modal>
   
 </ion-content>

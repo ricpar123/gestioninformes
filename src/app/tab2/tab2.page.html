@@ -1,17 +1,36 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
+    <ion-toolbar color="primary">
+      <ion-title>
+        Clientes
+      </ion-title>
     </ion-toolbar>
   </ion-header>
-
-  <app-explore-container name="Tab 2 page"></app-explore-container>
-</ion-content>
+  
+  <ion-content [fullscreen]="true">
+    <ion-grid fixed>
+      <ion-row class="title">
+        <ion-col size="2">Nombre</ion-col>
+        <ion-col size="2">email1</ion-col>
+        <ion-col size="2">email2</ion-col>
+        <ion-col size="2">email3</ion-col>
+        <ion-col size="2">email4</ion-col>
+        <ion-col size="2">Opciones</ion-col>
+      </ion-row>
+  
+      <ion-row *ngFor="let cliente of clientes; index as i">
+        <ion-col size="2">{{ cliente.nombre}}</ion-col>
+        <ion-col size="2">{{cliente.email1}}</ion-col>
+        <ion-col size="2">{{cliente.email2}}</ion-col>
+        <ion-col size="2">{{cliente.email3}}</ion-col>
+        <ion-col size="2">{{cliente.email4}}</ion-col>
+        <ion-col size="2"><ion-button size="small"class="ion-padding-rigth"(click)="edit(i)">Editar</ion-button>
+           <ion-button size="small" color="danger" class="ion-padding-rigth"(click) = "delete(i)">Borrar</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  
+    <ion-button shape="round" (click)="nuevoCliente()">Nuevo Cliente</ion-button>
+    
+  
+    
+  </ion-content>
