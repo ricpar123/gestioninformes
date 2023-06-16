@@ -73,10 +73,10 @@ export class Tab3Page implements OnInit{
     
     doc.setFontSize(20);
     doc.text('Ingenieria Electromecanica',10,25);
-    doc.setFont('Courier', 'Oblique');
+    doc.setFont('Courier', 'BoldOblique');
    
     doc.setFontSize(15);
-    doc.text('Maria F. Gonzalez 820',12,33);
+    doc.text('Maria F. Gonzalez 820 c/ Dr. Molinas',10,33);
     doc.setFont('Courier', 'Oblique');
    
     doc.setFontSize(15);
